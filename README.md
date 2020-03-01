@@ -16,7 +16,8 @@ $ cd client
 $ npm install
 $ npm start
 ```
-4. Open in browser[ http://localhost:8081 ]
+4. Open in browser  
+http://localhost:8081
 
 Default username and password to log in the application:
 - Username: user
@@ -24,5 +25,5 @@ Default username and password to log in the application:
 
 API endpoints:  
 Open in browser (for example strings "cup" or "react")  
-[ http://localhost:9000/api/repositories?q=cup ]  
-[ http://localhost:9000/api/repositories?q=react ]  
+http://localhost:9000/api/repositories?q=cup  
+http://localhost:9000/api/repositories?q=react  
