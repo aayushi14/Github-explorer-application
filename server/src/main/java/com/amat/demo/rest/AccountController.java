@@ -24,10 +24,10 @@ public class AccountController {
     public ResponseEntity<Account> createBookmark(@RequestBody Account account) {
         try {
             Account account1 = new Account("abc", "123");
-            Account account2 = new Account("a", "a");
+            Account account2 = new Account("user", "user123");
             Account account3 = new Account("admin", "admin");
             Account _account = accountRepository
-                    .save(new Account(account.getUsername(), account.getPassword()));
+                    .save(new Account(account2.getUsername(), account2.getPassword()));
             return new ResponseEntity<>(_account, HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.EXPECTATION_FAILED);

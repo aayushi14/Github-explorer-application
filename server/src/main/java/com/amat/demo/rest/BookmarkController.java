@@ -62,43 +62,4 @@ public class BookmarkController {
             return new ResponseEntity<>(null, HttpStatus.EXPECTATION_FAILED);
         }
     }
-
-    /*
-    @RequestMapping(value = "/bookmark", method = RequestMethod.POST)
-    public ResponseEntity<?> add(Principal principal, @RequestBody Repository repo) {
-        String username = principal.getName();
-        validateUser(username);
-        return accountRepository.findByUsername(username).map(account -> {
-            Bookmark b = bookmarkRepository.save(new Bookmark(account, repo.getName(),
-                    repo.getHtml_url()));
-            HttpHeaders httpHeaders = new HttpHeaders();
-            httpHeaders.setLocation(ServletUriComponentsBuilder
-                    .fromCurrentRequest()
-                    .path("/{id}")
-                    .buildAndExpand(b.getId()).toUri());
-            return new ResponseEntity<>(null, httpHeaders, HttpStatus.CREATED);
-        }).get();
-    }
-
-    @RequestMapping(value = "/{bookmarkId}", method = RequestMethod.GET)
-    public EntityModel<BookmarkEntity> readBookmark(Principal principal, @PathVariable Long bookmarkId) {
-        validateUser(principal.getName());
-        return new EntityModel<>(new BookmarkEntity(bookmarkRepository.getOne(bookmarkId)));
-    }
-
-    @RequestMapping(method = RequestMethod.GET)
-    public CollectionModel<BookmarkEntity> readBookmarks(Principal principal) {
-        String username = principal.getName();
-        validateUser(username);
-        return new CollectionModel<>(
-                bookmarkRepository
-                        .findByAccountUsername(username)
-                        .stream()
-                        .map(BookmarkEntity::new)
-                        .collect(Collectors.toList()));
-    }
-*/
-    private void validateUser(String username) {
-        accountRepository.findByUsername(username).orElseThrow(() -> new UserNotFoundException(username));
-    }
 }
