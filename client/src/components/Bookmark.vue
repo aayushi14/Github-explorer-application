@@ -29,7 +29,7 @@
         data: function() {
             return {
                 isBookmarked: '',
-                username: 'a',
+                username: 'user',
             };
         },
         mounted() {
